@@ -1,0 +1,44 @@
+{% extends 'complaints/base.html' %}
+{% load static %}
+{% block title %}Confirm Complaint{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row mt-5">
+  <div class="col-sm-6">
+    <h4>Complaint Summary</h4>
+    <hr>
+    {%for c in complaint%}
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5 class="fw-bold">Title: {{c.title}}</h5>
+          <p>Category: {{c.category}} </p>
+          <p>Description: {{c.describe}}</p>
+        </div>
+      </div>
+    {%endfor%}    
+  </div>
+  <div class="col-sm-4 offset-sm-1">
+    <h4>Select Your Address</h4>
+    <hr>
+    <form action="/complaint/registered/">
+      {%for ad in address%}
+      <div class="card">
+        <div class="card-body">
+        <h5>{{ad.first_name}} {{ad.last_name}}</h5>
+        <p>{{ad.street}}, {{ad.city}}, {{ad.postal_code}}</p>
+        </div>
+      </div>
+        <div class="form-check mt-2 mb-5">
+          <input class="form-check-input" type="radio" name="userid" id="useradd{{forloop.counter}}" value="{{ad.id}}">
+          <label class="form-check-label fw-bold" for="useradd{{forloop.counter}}">
+            Address: {{forloop.counter}} </label>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+        {%endfor%}
+        {% comment %} <input class="btn btn-primary" type="submit" value="Submit"> {% endcomment %}
+      
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock main-content %}

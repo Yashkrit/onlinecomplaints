@@ -1,0 +1,47 @@
+{% extends 'complaints/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'complaints/images/banner/1.jpg' %}" class="d-block w-100" alt="..."> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'complaints/images/banner/2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'complaints/images/banner/3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+   
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+
+
+{% block main-content %}
+<!-- Services Slider -->
+<div class="m-3">
+ <h2>Select the services</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+  <a href="" class="btn"><div class="item"><img src="{% static 'complaints/images/services/4.jpg' %}" alt="" height="200px"><span class="fw-bold">Contact us</span></div></a>
+  <a href="{%url "login"%}" class="btn"><div class="item"><img src="{% static 'complaints/images/services/5.jpg' %}" alt="" height="200px"><span class="fw-bold">Login</span></div></a>
+  <a href="{%url "registration"%}" class="btn"><div class="item"><img src="{% static 'complaints/images/services/6.png' %}" alt="" height="200px"><span class="fw-bold">Register</span></div></a>
+</div>
+</div>
+<!-- End 1st Services Slider -->
+{% endblock main-content %}
+
